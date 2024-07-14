@@ -25,9 +25,58 @@ document.getElementById('uploadImage').onclick = function() {
 document.getElementById('fileInput').onchange = function(event) {
     const file = event.target.files[0];
     if (file) {
-        alert(`File selected: ${file.name}`);
+        // Check file size (maximum 1MB)
+        if (file.size > 1024 * 1024) {
+            alert('File size exceeds 1MB. Please select a smaller file.');
+            return;
+        }
+
+        // Create an image object to check dimensions and DPI
+        const img = new Image();
+        img.onload = function() {
+            // Check image dimensions (240x240 pixels)
+            if (this.width !== 240 || this.height !== 240) {
+                alert('Image dimensions must be exactly 240x240 pixels.');
+                return;
+            }
+            
+            // Check image DPI (72 DPI)
+            const dpi = Math.round((this.naturalWidth / this.width) * 72);
+            if (dpi !== 72) {
+                alert('Image DPI must be 72.');
+                return;
+            }
+            
+            
+            // Implement change and delete options
+            const uploadBox = document.getElementById('uploadBox');
+            uploadBox.innerHTML = `
+                <img src="${URL.createObjectURL(file)}" alt="Uploaded Image" width="240" height="240">
+                <div>
+                    <button id="changeImage">Change</button>
+                    <button id="deleteImage">Delete</button>
+                </div>
+            `;
+            
+            // Change image handler
+            document.getElementById('changeImage').onclick = function() {
+                document.getElementById('fileInput').click();
+            };
+            
+            // Delete image handler
+            document.getElementById('deleteImage').onclick = function() {
+                uploadBox.innerHTML = `
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                    <button id="uploadImage">Upload Image</button>
+                `;
+            };
+        };
+        
+        // Load selected file into the image object
+        img.src = URL.createObjectURL(file);
     }
 };
+
 document.getElementById('state').onclick = function() {
     const stateDropdown = document.querySelector('.state-dropdown');
     
