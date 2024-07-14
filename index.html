@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <div class="outerborder">
+        <div class="fileupload">
+            <div class="upload-text">
+                <p class="p">Upload Logo</p>
+                <p class="p1">240 x 240 pixels @ 72 DPI,<br>
+                Maximum size of 1MB.</p>
+            </div>
+            <img src="images/Screenshot (354).png" id="uploadImage" alt="Upload Image">
+            <input type="file" id="fileInput" accept="image/*">
+        </div>
+        <div class="tax-invoice">
+            <p>TAX INVOICE<p>
+        </div>
+        <div class="info">
+            <input type="text" id="company" name="company" placeholder="Your Company">
+            <input type="text" id="name" name="name" placeholder="Your Name">
+            <input type="text" id="GSTIN" name="GSTIN" placeholder="Company's GSTIN">
+            <input type="text" id="address" name="address" placeholder="Company's Address">
+            <input type="text" id="city" name="city" placeholder="City">
+            <div class="state-dropdown">
+                <input type="text" id="state" name="state" placeholder="State">
+            </div>
+            <div class="country-dropdown">
+                <input type="text" id="country" name="country" value="India">
+            </div>
+        </div>
+        <div class="invoice-details">
+            <div class="bill-to">
+                <input type="text" id="billto" name="billto" value="Bill To:">
+                <input type="text" id="client-company" name="client-company" placeholder="Your Client’s Company">
+                <input type="text" id="client-gstin" name="client-gstin" placeholder="Client's GSTIN">
+                <input type="text" id="client-address" name="client-address" placeholder="Client’s Address">
+                <input type="text" id="client-city" name="client-city" placeholder="City">
+                <div class="state-dropdown1">
+                    <input type="text" id="client-state" name="client-state" placeholder="State">
+                </div>
+                <div class="country-dropdown1">
+                    <input type="text" id="client-country" name="client-country" value="India">
+                </div><br>
+                <div class="supply-state">
+                    <p>Place Of Supply:</p>
+                    <div class="state-dropdown2">
+                        <input type="text" id="supply-state" name="supply-state" placeholder="State">
+                    </div>
+                </div>
+            </div>
+            <div class="invoice-info">
+                <div class="invoice-field">
+                    <input type="text" id="invoice-number" name="invoice-number" value="Invoice#">
+                    <input type="text" id="invoice" name="invoice" placeholder="INV12">
+                </div>
+                <div class="date-field">
+                    <input type="text" id="invoicedate" name="invoicedate" value="Invoice Date">
+                    <input type="date" id="invoice-date" name="invoice-date" placeholder="Invoice Date">
+                </div>
+                <div class="date-field">
+                    <input type="text" id="duedate" name="duedate" value="Due Date">
+                    <input type="date" id="due-date" name="due-date" placeholder="Due Date">
+                </div>
+            </div>
+        </div>
+    <table id="invoiceTable">
+        <thead>
+            <tr style="background-color: black; color: white;">
+                <th>Item Description</th>
+                <th>Qty</th>
+                <th>Rate</th>
+                <th>SGST</th>
+                <th>CGST</th>
+                <th>Cess</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><textarea class="item-description"> Brochure Design</textarea></td>
+                <td><input type="number" value="2" class="qty" min="0"></td>
+                <td><input type="text" value="100.00" class="rate"></td>
+                <td><input type="number" value="6" class="sgst" min="0" step="0.01"></td>
+                <td><input type="number" value="6" class="cgst" min="0" step="0.01"></td>
+                <td><input type="number" value="0" class="cess" min="0" step="0.01"></td>
+                <td>
+                    <span class="amount">200.00</span>
+                    <span class="remove-row">✖</span>
+                </td>
+            </tr>
+            <tr>
+                <td><textarea  class="item-description">Enter item name/description</textarea></td>
+                <td><input type="number" value="1" class="qty" min="0"></td>
+                <td><input type="text" value="0.00" class="rate"></td>
+                <td><input type="number" value="0.00" class="sgst" min="0" step="0.01"></td>
+                <td><input type="number" value="0.00" class="cgst" min="0" step="0.01"></td>
+                <td><input type="number" value="0.00" class="cess" min="0" step="0.01"></td>
+                <td>
+                    <span class="amount">0.00</span>
+                    <span class="remove-row">✖</span>
+                </td>
+            </tr>
+            <tr>
+                <td><textarea class="item-description">Enter item name/description</textarea></td>
+                <td><input type="number" value="1" class="qty" min="0"></td>
+                <td><input type="text" value="0.00" class="rate"></td>
+                <td><input type="number" value="0.00" class="sgst" min="0" step="0.01"></td>
+                <td><input type="number" value="0.00" class="cgst" min="0" step="0.01"></td>
+                <td><input type="number" value="0.00" class="cess" min="0" step="0.01"></td>
+                <td>
+                    <span class="amount">0.00</span>
+                    <span class="remove-row">✖</span>
+                </td>
+            </tr>
+            <tr>
+                <td><textarea class="item-description">Enter item name/description</textarea></td>
+                <td><input type="number" value="1" class="qty" min="0"></td>
+                <td><input type="text" value="0.00" class="rate"></td>
+                <td><input type="number" value="0.00" class="sgst" min="0" step="0.01"></td>
+                <td><input type="number" value="0.00" class="cgst" min="0" step="0.01"></td>
+                <td><input type="number" value="0.00" class="cess" min="0" step="0.01"></td>
+                <td>
+                    <span class="amount">0.00</span>
+                    <span class="remove-row">✖</span>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="6" style="text-align: right;">Sub Total:</td>
+                <td id="subTotal">0.00</td>
+            </tr>
+            <tr>
+                <td colspan="6" style="text-align: right;">SGST:</td>
+                <td id="sgstTotal">0.00</td>
+            </tr>
+            <tr>
+                <td colspan="6" style="text-align: right;">CGST:</td>
+                <td id="cgstTotal">0.00</td>
+            </tr>
+            <tr>
+                <td colspan="6" style="text-align: right; font-weight: bold;">TOTAL</td>
+                <td>
+                    <div id="totalAmountContainer">
+                        <div id="currencyContainer">
+                            <span id="currencySymbol" class="rupee-symbol">₹</span>
+                        </div>
+                        <span id="total">0.00</span>
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+        
+        </table>
+        <button id="addRow">+ Add Line Item</button><br>
+        <input type="text" id="notes" name="name" value="Notes">
+        <textarea id="note" name="note" placeholder="It was great doing business with you."></textarea>
+
+        <input type="text" id="TAC" name="TAC" value="Terms & Conditions">
+        <textarea id="tac" name="tac" placeholder="Please make the payment by the due date."></textarea>
+        <img id="zohoimage" src="images/Screenshot (364).png">
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
