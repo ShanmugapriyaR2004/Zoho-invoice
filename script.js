@@ -1,18 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Select all input fields including text, number, and date inputs, and textareas
+    
     const inputFields = document.querySelectorAll('input[type="text"], input[type="number"], input[type="date"], textarea');
 
-    // Add a class to all input fields for initial styling
+   
     inputFields.forEach(function(input) {
         input.classList.add('initial-background');
     });
 
-    // Remove the class after a delay (adjust delay as needed)
+   
     setTimeout(function() {
         inputFields.forEach(function(input) {
             input.classList.remove('initial-background');
         });
-    }, 2000); // Remove the class after 2 seconds (2000 milliseconds)
+    }, 1000); 
 });
 
 
@@ -25,22 +25,22 @@ document.getElementById('uploadImage').onclick = function() {
 document.getElementById('fileInput').onchange = function(event) {
     const file = event.target.files[0];
     if (file) {
-        // Check file size (maximum 1MB)
+        
         if (file.size > 1024 * 1024) {
             alert('File size exceeds 1MB. Please select a smaller file.');
             return;
         }
 
-        // Create an image object to check dimensions and DPI
+        
         const img = new Image();
         img.onload = function() {
-            // Check image dimensions (240x240 pixels)
+           
             if (this.width !== 240 || this.height !== 240) {
                 alert('Image dimensions must be exactly 240x240 pixels.');
                 return;
             }
             
-            // Check image DPI (72 DPI)
+            
             const dpi = Math.round((this.naturalWidth / this.width) * 72);
             if (dpi !== 72) {
                 alert('Image DPI must be 72.');
@@ -48,7 +48,7 @@ document.getElementById('fileInput').onchange = function(event) {
             }
             
             
-            // Implement change and delete options
+            
             const uploadBox = document.getElementById('uploadBox');
             uploadBox.innerHTML = `
                 <img src="${URL.createObjectURL(file)}" alt="Uploaded Image" width="240" height="240">
@@ -58,12 +58,11 @@ document.getElementById('fileInput').onchange = function(event) {
                 </div>
             `;
             
-            // Change image handler
+            
             document.getElementById('changeImage').onclick = function() {
                 document.getElementById('fileInput').click();
             };
             
-            // Delete image handler
             document.getElementById('deleteImage').onclick = function() {
                 uploadBox.innerHTML = `
                     <input type="file" id="fileInput" accept="image/*" style="display: none;">
@@ -72,7 +71,7 @@ document.getElementById('fileInput').onchange = function(event) {
             };
         };
         
-        // Load selected file into the image object
+        
         img.src = URL.createObjectURL(file);
     }
 };
@@ -80,11 +79,11 @@ document.getElementById('fileInput').onchange = function(event) {
 document.getElementById('state').onclick = function() {
     const stateDropdown = document.querySelector('.state-dropdown');
     
-    // Create the select element
+   
     const select = document.createElement('select');
     select.id = 'stateSelect';
 
-    // Apply the style for the select box
+    
     select.style.width = '45%';
     select.style.height = '50px';
     select.style.marginTop = '1%';
@@ -96,7 +95,7 @@ document.getElementById('state').onclick = function() {
     select.style.cursor = 'pointer';
 
 
-    // Add the options
+   
     const states = [
         "Andaman and Nicobar Islands",
         "Andhra Pradesh",
@@ -118,7 +117,7 @@ document.getElementById('state').onclick = function() {
         "Kerala",
         "Lakshadweep",
         "Madhya Pradesh"
-        // Add more items as needed
+        
     ];
 
     states.forEach(state => {
@@ -128,16 +127,16 @@ document.getElementById('state').onclick = function() {
         select.appendChild(option);
     });
 
-    // Append the select element to the state dropdown div
+    
     stateDropdown.appendChild(select);
 
-    // Hide the input element
+  
     document.getElementById('state').style.display = 'none';
 
-    // Show the select element
+    
     select.style.display = 'block';
 
-    // Add event listener to update the input with the selected value
+   
     select.onchange = function() {
         document.getElementById('state').value = this.value;
         document.getElementById('state').style.display = 'block';
@@ -147,11 +146,11 @@ document.getElementById('state').onclick = function() {
 document.getElementById('country').onclick = function() {
     const countryDropdown = document.querySelector('.country-dropdown');
     
-    // Create the select element
+    
     const select = document.createElement('select');
     select.id = 'countrySelect';
 
-    // Apply the style for the select box
+    
     select.style.width = '50%';
     select.style.height = '50px';
     select.style.marginTop = '1%';
@@ -162,14 +161,14 @@ document.getElementById('country').onclick = function() {
     select.style.borderRadius = '5px';
     select.style.cursor = 'pointer';
 
-    // Add the options
+    
     const countries = [
         "India",
         "United States",
         "United Kingdom",
         "Canada",
         "Australia",
-        // Add more countries as needed
+        
     ];
 
     countries.forEach(country => {
@@ -179,16 +178,16 @@ document.getElementById('country').onclick = function() {
         select.appendChild(option);
     });
 
-    // Append the select element to the country dropdown div
+   
     countryDropdown.appendChild(select);
 
-    // Hide the input element
+    
     document.getElementById('country').style.display = 'none';
 
-    // Show the select element
+    
     select.style.display = 'block';
 
-    // Add event listener to update the input with the selected value
+    
     select.onchange = function() {
         document.getElementById('country').value = this.value;
         document.getElementById('country').style.display = 'block';
@@ -204,11 +203,11 @@ document.getElementById('country').onclick = function() {
 document.getElementById('client-state').onclick = function() {
     const stateDropdown = document.querySelector('.state-dropdown1');
     
-    // Create the select element
+    
     const select = document.createElement('select');
     select.id = 'stateSelect';
 
-    // Apply the style for the select box
+    
     select.style.width = '75%';
     select.style.height = '50px';
     select.style.marginTop = '1%';
@@ -220,7 +219,7 @@ document.getElementById('client-state').onclick = function() {
     select.style.cursor = 'pointer';
 
 
-    // Add the options
+    
     const states = [
         "Andaman and Nicobar Islands",
         "Andhra Pradesh",
@@ -242,7 +241,7 @@ document.getElementById('client-state').onclick = function() {
         "Kerala",
         "Lakshadweep",
         "Madhya Pradesh"
-        // Add more items as needed
+       
     ];
 
     states.forEach(state => {
@@ -252,16 +251,16 @@ document.getElementById('client-state').onclick = function() {
         select.appendChild(option);
     });
 
-    // Append the select element to the state dropdown div
+    
     stateDropdown.appendChild(select);
 
-    // Hide the input element
+    
     document.getElementById('client-state').style.display = 'none';
 
-    // Show the select element
+   
     select.style.display = 'block';
 
-    // Add event listener to update the input with the selected value
+    
     select.onchange = function() {
         document.getElementById('client-state').value = this.value;
         document.getElementById('client-state').style.display = 'block';
@@ -271,11 +270,11 @@ document.getElementById('client-state').onclick = function() {
 document.getElementById('client-country').onclick = function() {
     const countryDropdown = document.querySelector('.country-dropdown1');
     
-    // Create the select element
+    
     const select = document.createElement('select');
     select.id = 'countrySelect';
 
-    // Apply the style for the select box
+    
     select.style.width = '90%';
     select.style.height = '50px';
     select.style.marginTop = '1%';
@@ -286,14 +285,14 @@ document.getElementById('client-country').onclick = function() {
     select.style.borderRadius = '5px';
     select.style.cursor = 'pointer';
 
-    // Add the options
+
     const countries = [
         "India",
         "United States",
         "United Kingdom",
         "Canada",
         "Australia",
-        // Add more countries as needed
+        
     ];
 
     countries.forEach(country => {
@@ -303,16 +302,16 @@ document.getElementById('client-country').onclick = function() {
         select.appendChild(option);
     });
 
-    // Append the select element to the country dropdown div
+    
     countryDropdown.appendChild(select);
 
-    // Hide the input element
+   
     document.getElementById('client-country').style.display = 'none';
 
-    // Show the select element
+   
     select.style.display = 'block';
 
-    // Add event listener to update the input with the selected value
+   
     select.onchange = function() {
         document.getElementById('client-country').value = this.value;
         document.getElementById('client-country').style.display = 'block';
@@ -325,11 +324,11 @@ document.getElementById('client-country').onclick = function() {
 document.getElementById('supply-state').onclick = function() {
     const stateDropdown = document.querySelector('.state-dropdown2');
     
-    // Create the select element
+    
     const select = document.createElement('select');
     select.id = 'stateSelect';
 
-    // Apply the style for the select box
+    
     select.style.width = '110%';
     select.style.height = '50px';
     select.style.marginTop = '1%';
@@ -341,7 +340,7 @@ document.getElementById('supply-state').onclick = function() {
     select.style.cursor = 'pointer';
 
 
-    // Add the options
+   
     const states = [
         "Andaman and Nicobar Islands",
         "Andhra Pradesh",
@@ -363,7 +362,7 @@ document.getElementById('supply-state').onclick = function() {
         "Kerala",
         "Lakshadweep",
         "Madhya Pradesh"
-        // Add more items as needed
+        
     ];
 
     states.forEach(state => {
@@ -373,23 +372,23 @@ document.getElementById('supply-state').onclick = function() {
         select.appendChild(option);
     });
 
-    // Append the select element to the state dropdown div
+    
     stateDropdown.appendChild(select);
 
-    // Hide the input element
+    
     document.getElementById('supply-state').style.display = 'none';
 
-    // Show the select element
+    
     select.style.display = 'block';
 
-    // Add event listener to update the input with the selected value
+    
     select.onchange = function() {
         document.getElementById('supply-state').value = this.value;
         document.getElementById('supply-state').style.display = 'block';
         select.remove();
     };
 };
-// script.js
+
 const today = new Date().toISOString().split('T')[0];
 document.getElementById('invoice-date').value = today;
 document.getElementById('due-date').value = today;
@@ -462,16 +461,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     addRowButton.addEventListener('click', addRow);
 
-    updateSubTotal(); // Initial calculation of Sub Total
+    updateSubTotal(); 
 });
 document.getElementById('currencySymbol').onclick = function() {
     const totalAmountContainer = document.getElementById('totalAmountContainer');
     
-    // Create the select element
+   
     const select = document.createElement('select');
     select.id = 'currencySelect';
 
-    // Apply the style for the select box
+    
     select.style.width = '55px';
     select.style.height = '25px';
     select.style.marginRight = '1px';
@@ -481,13 +480,13 @@ document.getElementById('currencySymbol').onclick = function() {
     select.style.borderRadius = '5px';
     select.style.cursor = 'pointer';
 
-    // Add the options for different currency symbols
+    
     const currencies = [
         { symbol: '₹', name: 'INR' },
         { symbol: '$', name: 'USD' },
         { symbol: '€', name: 'EUR' },
         { symbol: '£', name: 'GBP' },
-        // Add more currencies as needed
+       
     ];
 
     currencies.forEach(currency => {
@@ -497,23 +496,23 @@ document.getElementById('currencySymbol').onclick = function() {
         select.appendChild(option);
     });
 
-    // Append the select element to the total amount container
+    
     totalAmountContainer.insertBefore(select, document.getElementById('total'));
 
-    // Hide the currency symbol span
+   
     document.getElementById('currencySymbol').style.display = 'none';
 
-    // Show the select element
+   
     select.style.display = 'block';
 
-    // Add event listener to update the currency symbol span with the selected value
+    
     select.onchange = function() {
         document.getElementById('currencySymbol').textContent = this.value;
         document.getElementById('currencySymbol').style.display = 'inline';
         select.remove();
     };
 };
-// Function to update totals
+
 function updateTotals() {
     let subTotal = 0;
     let sgstTotal = 0;
@@ -548,12 +547,12 @@ function updateTotals() {
     document.getElementById('total').textContent = (subTotal + sgstTotal + cgstTotal).toFixed(2);
 }
 
-// Event listeners for input changes
+
 document.querySelectorAll('#invoiceTable tbody input').forEach(input => {
     input.addEventListener('input', updateTotals);
 });
 
-// Initial calculation
+
 updateTotals();
 
 
